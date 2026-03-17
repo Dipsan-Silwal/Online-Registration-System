@@ -15,15 +15,18 @@ $admin_username = "admin";
 $admin_password = "admin123";
 
 $error = "";
+$old_username = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get username and password from form
-    $username = trim($_POST['username']);
-    $password = trim($_POST['password']);
+    $username = isset($_POST['username']) ? trim((string)$_POST['username']) : "";
+    $password = isset($_POST['password']) ? trim((string)$_POST['password']) : "";
+    $old_username = $username;
 
     // Check credentials
     if ($username === $admin_username && $password === $admin_password) {
         // Correct login – store in session
+        session_regenerate_id(true);
         $_SESSION['admin_logged_in'] = true;
         header("Location: index.php");
         exit();
@@ -54,13 +57,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <h2>Admin Login</h2>
 
             <?php if (!empty($error)) : ?>
-                <p class="error-message"><?php echo $error; ?></p>
+                <p class="error-message"><?php echo htmlspecialchars($error, ENT_QUOTES, 'UTF-8'); ?></p>
             <?php endif; ?>
 
             <form action="login.php" method="post">
                 <div class="form-group">
                     <label>Username:</label>
-                    <input type="text" name="username" required>
+                    <input type="text" name="username" value="<?php echo htmlspecialchars($old_username, ENT_QUOTES, 'UTF-8'); ?>" required>
                 </div>
 
                 <div class="form-group">
