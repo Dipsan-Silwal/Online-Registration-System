@@ -1,37 +1,28 @@
 <?php
-// login.php
-// Simple admin login using PHP sessions
+include "session.php";
 
-session_start();
-
-// If already logged in, go directly to main page
 if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true) {
     header("Location: index.php");
     exit();
 }
 
-// Simple hard-coded admin credentials
-$admin_username = "admin";
-$admin_password = "admin123";
+$admin_username = "";
+$admin_password = "";
 
 $error = "";
-$old_username = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Get username and password from form
-    $username = isset($_POST['username']) ? trim((string)$_POST['username']) : "";
-    $password = isset($_POST['password']) ? trim((string)$_POST['password']) : "";
-    $old_username = $username;
+    $username = isset($_POST['username']) ? trim((string)$_POST['username']) : '';
+    $password = isset($_POST['password']) ? trim((string)$_POST['password']) : '';
 
-    // Check credentials
-    if ($username === $admin_username && $password === $admin_password) {
-        // Correct login – store in session
-        session_regenerate_id(true);
+    if ($username == $admin_username && $password == $admin_password) {
+        // Correct login
         $_SESSION['admin_logged_in'] = true;
+        $_SESSION['login_time'] = time();
+        $_SESSION['last_activity'] = time();
         header("Location: index.php");
         exit();
     } else {
-        // Wrong login
         $error = "Invalid username or password.";
     }
 }
@@ -46,32 +37,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
 <div class="page-wrapper">
     <header class="main-header">
-        <h1>Simple Online Registration Management System</h1>
-        <nav class="nav-bar">
-            <span>Admin Login</span>
-        </nav>
+        <h1>Online Registration Management System</h1>
     </header>
 
     <main class="content">
         <div class="form-card">
             <h2>Admin Login</h2>
 
-            <?php if (!empty($error)) : ?>
-                <p class="error-message"><?php echo htmlspecialchars($error, ENT_QUOTES, 'UTF-8'); ?></p>
-            <?php endif; ?>
+            <?php if (!empty($error)) echo "<p class='error-message'>$error</p>"; ?>
 
             <form action="login.php" method="post">
                 <div class="form-group">
                     <label>Username:</label>
-                    <input type="text" name="username" value="<?php echo htmlspecialchars($old_username, ENT_QUOTES, 'UTF-8'); ?>" required>
+                    <input type="text" name="username">
                 </div>
 
                 <div class="form-group">
                     <label>Password:</label>
-                    <input type="password" name="password" required>
+                    <input type="password" name="password">
                 </div>
 
-                <button type="submit" class="btn btn-login">Login</button>
+                <button type="submit" class="btn btn-login">Loginn</button>
             </form>
         </div>
     </main>
