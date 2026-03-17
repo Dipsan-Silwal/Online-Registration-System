@@ -1,12 +1,11 @@
 <?php
-// logout.php
-// Destroy the session and redirect to login page
 
-session_start();
+include "session.php";
 session_unset();
 session_destroy();
+
+setcookie(session_name(), "", time() - 3600, "/");
 
 header("Location: login.php");
 exit();
 ?>
-
