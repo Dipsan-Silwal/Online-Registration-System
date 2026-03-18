@@ -21,8 +21,8 @@ A simple PHP-based web application for managing user registrations with admin au
 
 ## 🔐 Default Login Credentials
 
-- **Username**: `a`
-- **Password**: `a`
+- **Username**: ``
+- **Password**: ``
 
 
 ## 📁 File Structure
