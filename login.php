@@ -44,7 +44,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="form-card">
             <h2>Admin Login</h2>
 
-            <?php if (!empty($error)) echo "<p class='error-message'>$error</p>"; ?>
+            <?php 
+            if (!empty($error)) 
+                echo "<p class='error-message'>$error</p>"; 
+            ?>
 
             <form action="login.php" method="post">
                 <div class="form-group">
