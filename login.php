@@ -6,8 +6,9 @@ if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true
     exit();
 }
 
-$admin_username = "a";
-$admin_password = "a";
+$admin_username = "";
+$admin_password = "";
+
 
 $error = "";
 
