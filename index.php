@@ -17,7 +17,7 @@ $result = mysqli_query($conn, $sql);
 </head>
 <body>
 <div class="page-wrapper">
-    <!-- Header and Navigation -->
+   
     <header class="main-header">
         <h1>Online Registration Management System</h1>
         <nav class="nav-bar">
@@ -35,7 +35,7 @@ $result = mysqli_query($conn, $sql);
             <?php unset($_SESSION['flash_error']); ?>
         <?php endif; ?>
 
-        <!-- Registration Form -->
+    
         <section class="form-card">
             <h2>Register New User</h2>
             <form action="insert.php" method="post">
@@ -69,7 +69,6 @@ $result = mysqli_query($conn, $sql);
             </form>
         </section>
 
-        <!-- Registered Users Table -->
         <section class="table-card">
             <h2>Registered Users</h2>
             <div class="table-responsive">

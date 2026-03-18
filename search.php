@@ -1,13 +1,12 @@
 <?php
-// search.php
-// Allows searching users by name or email
+
 
 include "session.php";
 check_login();
 
 include "setup_database.php";
 
-// Get search keyword from form
+
 $keyword = "";
 if (isset($_GET['keyword'])) {
     $keyword = trim((string)$_GET['keyword']);
@@ -43,7 +42,7 @@ if ($keyword !== "") {
     </header>
 
     <main class="content">
-        <!-- Search Form -->
+       
         <section class="form-card">
             <h2>Search Registered Users</h2>
             <form action="search.php" method="get">
@@ -56,7 +55,7 @@ if ($keyword !== "") {
             </form>
         </section>
 
-        <!-- Search Results Table -->
+       
         <section class="table-card">
             <h2>Search Results</h2>
             <div class="table-responsive">
