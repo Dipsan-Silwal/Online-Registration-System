@@ -1,0 +1,248 @@
+/* style.css */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f0f2f5; /* light gray page background */
+    color: #333;
+}
+
+/* Layout wrapper */
+.page-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.main-header {
+    background-color: #4a90e2; /* soft blue header */
+    color: #fff;
+    padding: 16px 20px;
+}
+
+.main-header h1 {
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+/* Navigation bar */
+.nav-bar {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.nav-bar a,
+.nav-bar span {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 8px;
+}
+
+.nav-bar a:hover {
+    text-decoration: underline;
+}
+
+/* Main content area */
+.content {
+    flex: 1;
+    padding: 20px;
+}
+
+/* Card containers */
+.form-card,
+.table-card {
+    background-color: #fff; /* white content background */
+    border-radius: 8px;     /* rounded form boxes */
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Smaller info section */
+.small-info {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+/* Form styles */
+.form-card h2,
+.table-card h2 {
+    margin-bottom: 14px;
+    font-size: 18px;
+}
+
+.form-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 220px;
+    margin-bottom: 10px;
+}
+
+.form-group label {
+    margin-bottom: 4px;
+    font-size: 14px;
+}
+
+.form-group input {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+/* Messages */
+.error-message {
+    color: #d9534f;
+    margin-bottom: 10px;
+}
+
+.info-message {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: none;
+    text-align: center;
+    margin-right: 6px;
+}
+
+/* Register: Green */
+.btn-register {
+    background-color: #28a745;
+    color: #fff;
+}
+
+/* Edit: Blue */
+.btn-edit {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* Delete: Red */
+.btn-delete {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+/* Search button: same as blue */
+.btn-search {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* Secondary (neutral) button */
+.btn-secondary {
+    background-color: #6c757d;
+    color: #fff;
+}
+
+/* Login button */
+.btn-login {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* Button hover (simple darker effect) */
+.btn:hover {
+    opacity: 0.9;
+}
+
+/* Tables */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto; /* Scrollable on small screens */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+table th,
+table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    font-size: 14px;
+    text-align: left;
+}
+
+table th {
+    background-color: #f7f7f7;
+}
+
+/* Footer */
+.main-footer {
+    background-color: #f0f2f5;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 13px;
+    color: #555;
+    border-top: 1px solid #ddd;
+}
+
+/* Responsive design with media queries */
+
+/* Tablet and below */
+@media (max-width: 768px) {
+    .main-header h1 {
+        font-size: 18px;
+    }
+
+    .nav-bar {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .content {
+        padding: 10px;
+    }
+
+    .form-card,
+    .table-card {
+        padding: 14px;
+    }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+    .form-flex {
+        flex-direction: column; /* Stack input fields vertically */
+    }
+
+    .form-group {
+        flex: 1 1 100%;
+    }
+
+    table th,
+    table td {
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    .btn {
+        margin-bottom: 4px;
+    }
+}
+
