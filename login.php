@@ -44,10 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="form-card">
             <h2>Admin Login</h2>
 
-            <?php 
-            if (!empty($error)) 
-                echo "<p class='error-message'>$error</p>"; 
-            ?>
+            <?php if (!empty($error)) echo "<p class='error-message'>$error</p>"; ?>
 
             <form action="login.php" method="post">
                 <div class="form-group">
@@ -60,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="password" name="password">
                 </div>
 
-                <button type="submit" class="btn btn-login">Loginn</button>
+                <button type="submit" class="btn btn-login">Login</button>
             </form>
         </div>
     </main>
