@@ -1,6 +1,6 @@
 <?php
 
-session_set_cookie_params(0);    //session cookie will end when browser is closed
+// session_set_cookie_params(0);    //session cookie will end when browser is closed
 session_start();
 
 function check_login(): void
